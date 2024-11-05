@@ -1,12 +1,13 @@
+import Main from "./components/Main";
+import Sidebar from "./components/Sidebar";
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+    <div className="h-screen w-screen flex">
+      <Sidebar />
+      <Main />
     </div>
-  );
+  )
 }
 
 export default App;
