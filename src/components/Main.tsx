@@ -4,7 +4,7 @@ import useItemStore from '../stores'
 import { DragItem } from '../types'
 
 const Main = () => {
-  const { droppedItems, addItem } = useItemStore()
+  const { droppedItems, addItem, selectItem } = useItemStore()
 
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: 'component',
@@ -34,21 +34,23 @@ const Main = () => {
         )}
         ref={drop}
       >
-        {droppedItems.map((item, index) => (
-          <div key={index}>
-            {item.type === 'image' ? (
-              <img
-                alt="dropped"
-                className="object-cover"
-                src={item.url}
-                height={item.height}
-                width={item.width}
-              />
-            ) : (
-              <div>{item.text}</div>
-            )}
-          </div>
-        ))}
+        {droppedItems?.length > 0 && (
+          droppedItems?.map((item) => (
+            <div key={item.uuid} onClick={() => selectItem(item.uuid)}>
+              {item.type === 'image' ? (
+                <img
+                  alt="dropped"
+                  className="object-cover"
+                  src={item.url}
+                  height={item.height}
+                  width={item.width}
+                />
+              ) : (
+                <div>{item.text}</div>
+              )}
+            </div>
+          )))
+        }
       </main>
     </div>
   )

@@ -1,13 +1,8 @@
-export interface ImageItem {
-  width: number;
-  height: number;
-  url: string;
-  type: 'image';
+export interface DragItem {
+  uuid: string;
+  type: 'text' | 'image';
+  width?: number;
+  height?: number;
+  url?: string;
+  text?: string;
 }
-
-export interface TextItem {
-  text: string;
-  type: 'text';
-}
-
-export type DragItem = ImageItem | TextItem;
