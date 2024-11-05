@@ -1,19 +1,15 @@
 import { useDrop } from 'react-dnd'
-import { useState } from 'react'
 import clsx from 'clsx'
-
-interface DragItem {
-  type: 'text' | 'image'
-}
+import useItemStore from '../stores'
+import { DragItem } from '../types'
 
 const Main = () => {
-
-  const [droppedItems, setDroppedItems] = useState<string[]>([])
+  const { droppedItems, addItem } = useItemStore()
 
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: 'component',
     drop: (item: DragItem) => {
-      setDroppedItems((prev) => [...prev, item.type])
+      addItem(item)
     },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
@@ -40,7 +36,7 @@ const Main = () => {
       >
         {droppedItems.map((item, index) => (
           <div key={index} className="my-2 p-2 border border-slate-300">
-            {item} 元件放置於此
+            {item.type} 元件放置於此
           </div>
         ))}
       </main>

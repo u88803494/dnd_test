@@ -1,9 +1,22 @@
 import { ReactNode } from "react"
 import { useDrag } from "react-dnd"
+import { ImageItem, TextItem } from "../types"
 
 interface ButtonProps {
   children: ReactNode
   type: string
+}
+
+const defaultImageItem: ImageItem = {
+  width: 300,
+  height: 300,
+  url: 'https://i.imgur.com/5PGOxPg.png',
+  type: 'image',
+}
+
+const defaultTextItem: TextItem = {
+  text: 'Hello from Meepshop!',
+  type: 'text',
 }
 
 const Button = (props: ButtonProps) => {
@@ -11,7 +24,7 @@ const Button = (props: ButtonProps) => {
 
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'component',
-    item: { type },
+    item: type === 'image' ? defaultImageItem : defaultTextItem,
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
