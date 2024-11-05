@@ -6,7 +6,7 @@ import Sidebar from "./components/Sidebar"
 const App = () => {
   return (
     <DndProvider backend={HTML5Backend} >
-      <div className="h-screen w-screen flex">
+      <div className="h-screen w-screen flex overflow-auto">
         <Sidebar />
         <Main />
       </div>
