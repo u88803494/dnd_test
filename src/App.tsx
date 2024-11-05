@@ -1,7 +1,7 @@
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import { DndProvider } from 'react-dnd'
-import Main from "./components/Main";
-import Sidebar from "./components/Sidebar";
+import Main from "./components/Main"
+import Sidebar from "./components/Sidebar"
 
 const App = () => {
   return (
@@ -14,4 +14,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default App
