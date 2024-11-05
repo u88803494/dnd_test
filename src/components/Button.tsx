@@ -10,7 +10,7 @@ interface ButtonProps {
 const defaultImageItem: ImageItem = {
   width: 300,
   height: 300,
-  url: 'https://i.imgur.com/5PGOxPg.png',
+  url: 'https://i.imgur.com/OL2RhAx.jpeg',
   type: 'image',
 }
 

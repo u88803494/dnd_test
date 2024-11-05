@@ -26,7 +26,7 @@ const Main = () => {
       </nav>
       <main
         className={clsx(
-          "px-2 py-4 h-[calc(100vh-32px)]",
+          "h-[calc(100vh-32px)]",
           {
             'bg-blue-100': canDrop,
             'border-dashed border-2 border-blue-500': isOver
@@ -35,8 +35,18 @@ const Main = () => {
         ref={drop}
       >
         {droppedItems.map((item, index) => (
-          <div key={index} className="my-2 p-2 border border-slate-300">
-            {item.type} 元件放置於此
+          <div key={index}>
+            {item.type === 'image' ? (
+              <img
+                alt="dropped"
+                className="object-cover"
+                src={item.url}
+                height={item.height}
+                width={item.width}
+              />
+            ) : (
+              <div>{item.text}</div>
+            )}
           </div>
         ))}
       </main>
