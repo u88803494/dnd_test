@@ -1,12 +1,16 @@
+import { HTML5Backend } from 'react-dnd-html5-backend'
+import { DndProvider } from 'react-dnd'
 import Main from "./components/Main";
 import Sidebar from "./components/Sidebar";
 
 const App = () => {
   return (
-    <div className="h-screen w-screen flex">
-      <Sidebar />
-      <Main />
-    </div>
+    <DndProvider backend={HTML5Backend} >
+      <div className="h-screen w-screen flex">
+        <Sidebar />
+        <Main />
+      </div>
+    </DndProvider>
   )
 }
 
