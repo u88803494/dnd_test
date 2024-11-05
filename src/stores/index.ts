@@ -6,7 +6,7 @@ interface StoreState {
   droppedItems: DragItem[];
   addItem: (item: DragItem) => void;
   selectItem: (uuid: string) => void;
-  // updateItem: (index: number, newItem: Item) => void;
+  updateItem: (uuid: string, newData: Partial<DragItem>) => void;
 }
 
 const useItemStore = create<StoreState>((set) => ({
@@ -17,12 +17,13 @@ const useItemStore = create<StoreState>((set) => ({
   })),
   selectItem: (uuid) => set(() => ({
     selectedUuid: uuid
-  }))
-  // updateItem: (index, newItem) => set((state) => {
-  //   const newDroppedItems = [...state.droppedItems]
-  //   newDroppedItems[index] = newItem
-  //   return { droppedItems: newDroppedItems }
-  // }),
+  })),
+  updateItem: (uuid, newData) => set((state) => {
+    const updatedItems = state.droppedItems.map(item =>
+      item.uuid === uuid ? { ...item, ...newData } : item
+    );
+    return { droppedItems: updatedItems };
+  }),
 }));
 
 export default useItemStore;
