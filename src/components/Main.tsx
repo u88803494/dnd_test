@@ -9,7 +9,7 @@ const Main = () => {
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: 'component',
     drop: (item: DragItem) => {
-      addItem(item)
+      addItem(item) // TODO: 或許是放開時，生成 id?
     },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),

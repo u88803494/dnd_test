@@ -24,9 +24,10 @@ const Button = (props: ButtonProps) => {
 
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'component',
-    item: type === 'image'
-      ? { ...defaultImageItem, uuid: uuidv4() }
-      : { ...defaultTextItem, uuid: uuidv4() },
+    item: { 
+      ...type === 'image' ? defaultImageItem : defaultTextItem,
+      uuid: uuidv4()
+    },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
