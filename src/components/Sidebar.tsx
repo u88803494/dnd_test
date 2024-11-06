@@ -1,9 +1,9 @@
-import useItemStore from "../stores"
-import Button from "./Button"
-import Editor from "./Editor"
+import useItemStore from "../stores";
+import Button from "./Button";
+import Editor from "./Editor";
 
 const Sidebar = () => {
-  const { selectedUuid } = useItemStore()
+  const { selectedUuid } = useItemStore();
 
   return (
     <aside className="w-1/4 h-screen p-4 flex flex-col justify-center border-r-2 sticky top-0">
@@ -21,6 +21,6 @@ const Sidebar = () => {
       )}
     </aside>
   )
-}
+};
 
-export default Sidebar
+export default Sidebar;

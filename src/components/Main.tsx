@@ -5,7 +5,7 @@ import useItemStore from '../stores';
 import { DragData } from '../types';
 
 const Main = () => {
-  const { droppedItems, addItem, selectItem } = useItemStore()
+  const { droppedItems, addItem, selectItem } = useItemStore();
 
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: 'component',
@@ -59,6 +59,6 @@ const Main = () => {
       </main>
     </div>
   )
-}
+};
 
 export default Main;

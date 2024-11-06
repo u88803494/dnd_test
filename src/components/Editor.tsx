@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react"
-import useItemStore from "../stores"
-import { DragItem } from "../types"
+import { useEffect, useState } from "react";
+import useItemStore from "../stores";
+import { DragItem } from "../types";
 
 const Editor = () => {
-  const { selectedUuid, droppedItems, updateItem } = useItemStore()
+  const { selectedUuid, droppedItems, updateItem } = useItemStore();
 
-  const selectedItem = droppedItems.find(i => i.uuid === selectedUuid) as DragItem
+  const selectedItem = droppedItems.find(i => i.uuid === selectedUuid) as DragItem;
 
-  const [url, setUrl] = useState<string>(selectedItem?.url ?? '')
-  const [width, setWidth] = useState<number>(selectedItem?.width ?? 300)
-  const [height, setHeight] = useState<number>(selectedItem?.height ?? 300)
+  const [url, setUrl] = useState<string>(selectedItem?.url ?? '');
+  const [width, setWidth] = useState<number>(selectedItem?.width ?? 300);
+  const [height, setHeight] = useState<number>(selectedItem?.height ?? 300);
 
   useEffect(() => {
     if (selectedItem.type === "image") {
-      setUrl(selectedItem?.url ?? '')
-      setWidth(selectedItem?.width ?? 300)
-      setHeight(selectedItem?.height ?? 300)
+      setUrl(selectedItem?.url ?? '');
+      setWidth(selectedItem?.width ?? 300);
+      setHeight(selectedItem?.height ?? 300);
     }
   }, [selectedItem.height, selectedItem.type, selectedItem.url, selectedItem.width, selectedUuid])
 
@@ -89,6 +89,6 @@ const Editor = () => {
       />
     </div>
   )
-}
+};
 
-export default Editor
+export default Editor;

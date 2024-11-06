@@ -1,9 +1,9 @@
-import { ReactNode } from "react"
-import { useDrag } from "react-dnd"
+import { ReactNode } from "react";
+import { useDrag } from "react-dnd";
 
 interface ButtonProps {
-  children: ReactNode
-  type: string
+  children: ReactNode;
+  type: string;
 }
 
 const defaultImageItem = {
@@ -23,14 +23,13 @@ const Button = (props: ButtonProps) => {
 
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'component',
-    item: { 
+    item: {
       ...type === 'image' ? defaultImageItem : defaultTextItem,
     },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
-  }))
-
+  }));
 
   return (
     <button
@@ -39,7 +38,7 @@ const Button = (props: ButtonProps) => {
     >
       {children}
     </button>
-  )
+  );
 }
 
-export default Button
+export default Button;
