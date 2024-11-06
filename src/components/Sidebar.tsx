@@ -6,7 +6,7 @@ const Sidebar = () => {
   const { selectedUuid } = useItemStore()
 
   return (
-    <aside className="h-screen w-1/4 p-4 flex flex-col justify-center border-r-2">
+    <aside className="w-1/4 h-screen p-4 flex flex-col justify-center border-r-2 sticky top-0">
       {selectedUuid ? (
         <Editor />
       ) : (

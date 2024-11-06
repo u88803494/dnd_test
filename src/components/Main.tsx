@@ -18,7 +18,7 @@ const Main = () => {
   }))
 
   return (
-    <div className="w-3/4 relative">
+    <div className="flex-1 relative">
       <nav className="w-full h-8 sticky top-0 flex justify-center items-center bg-white border">
         <div>
           This is a fixed header, no need to modify
