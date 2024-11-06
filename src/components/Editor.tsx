@@ -59,6 +59,7 @@ const Editor = () => {
           <input
             className="border w-full p-1"
             value={width}
+            type="number"
             onChange={handleWidthChange}
             onKeyDown={handleKeyPress}
           />
@@ -68,10 +69,12 @@ const Editor = () => {
           <input
             className="border w-full p-1"
             value={height}
+            type="number"
             onChange={handleHeightChange}
             onKeyDown={handleKeyPress}
           />
         </div>
+        <div>輸入完按下 Enter 變更</div>
       </div>
     )
   }

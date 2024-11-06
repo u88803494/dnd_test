@@ -1,6 +1,5 @@
 import { ReactNode } from "react"
 import { useDrag } from "react-dnd"
-import { v4 as uuidv4 } from 'uuid';
 
 interface ButtonProps {
   children: ReactNode
@@ -26,7 +25,6 @@ const Button = (props: ButtonProps) => {
     type: 'component',
     item: { 
       ...type === 'image' ? defaultImageItem : defaultTextItem,
-      uuid: uuidv4()
     },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),

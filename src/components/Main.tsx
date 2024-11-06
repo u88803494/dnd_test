@@ -1,15 +1,20 @@
-import { useDrop } from 'react-dnd'
-import clsx from 'clsx'
-import useItemStore from '../stores'
-import { DragItem } from '../types'
+import { useDrop } from 'react-dnd';
+import clsx from 'clsx';
+import { v4 as uuidv4 } from 'uuid';
+import useItemStore from '../stores';
+import { DragData } from '../types';
 
 const Main = () => {
   const { droppedItems, addItem, selectItem } = useItemStore()
 
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: 'component',
-    drop: (item: DragItem) => {
-      addItem(item) // TODO: 或許是放開時，生成 id?
+    drop: (item: DragData) => {
+      const newItem = {
+        uuid: uuidv4(),
+        ...item,
+      }
+      addItem(newItem)
     },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
@@ -56,4 +61,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default Main;
